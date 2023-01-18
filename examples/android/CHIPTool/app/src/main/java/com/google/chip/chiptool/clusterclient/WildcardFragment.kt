@@ -186,10 +186,10 @@ class WildcardFragment : Fragment() {
       setView(dialogView)
     }.create()
 
-    val isFabricFilteredEd = dialogView.findViewById<EditText>(R.id.isFabricFilteredSp)
+    val isFabricFilteredSp = dialogView.findViewById<Spinner>(R.id.isFabricFilteredSp)
     dialogView.findViewById<Button>(R.id.readBtn).setOnClickListener {
       scope.launch {
-        read(type, isFabricFilteredEd.text.toString().toBoolean())
+        read(type, isFabricFilteredSp.selectedItem.toString().toBoolean())
         requireActivity().runOnUiThread { dialog.dismiss() }
       }
     }
